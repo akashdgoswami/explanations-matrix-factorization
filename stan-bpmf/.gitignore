@@ -1,0 +1,10 @@
+*.pyc
+*.d
+*.o
+
+/bpmf*
+/bpmf*.stan.model.pkl?.gz
+!/bpmf*.py
+!/bpmf*.stan
+
+/data

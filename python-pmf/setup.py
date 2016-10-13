@@ -12,5 +12,6 @@ setup(
         Extension("bayes_pmf", ["bayes_pmf.c"]),
         Extension("realmini_cy", ["realmini_cy.c"]),
         Extension("real_cy", ["real_cy.c"]),
+	Extension("dataset_cy", ["dataset_cy.c"]),
     ]
 )

@@ -71,6 +71,8 @@ cdef class ProbabilisticMatrixFactorization:
             knowable = itertools.product(range(n), range(m))
         self.unrated = set(knowable).difference(self.rated)
 
+        np.random.seed(seed=13)
+
         self.users = np.random.random((n, self.latent_d))
         self.items = np.random.random((m, self.latent_d))
 
@@ -352,11 +354,14 @@ cdef class ProbabilisticMatrixFactorization:
 
     def fit_minibatches_validation(self, int batch_size, int valid_size,
                                    **kwargs):
+        random.seed(a=13)
+        np.random.seed(seed=13)
+
         cdef int total = self.ratings.shape[0]
         cdef set valid_idx_set = set(random.sample(range(total), valid_size))
         cdef tuple train_idx = tuple(
                 i for i in range(total) if i not in valid_idx_set)
-        cdef np.ndarray train = self.ratings[train_idx,:]
+        cdef np.ndarray train = self.ratings[train_idx,:]   
 
         cdef list valid_idx = list(valid_idx_set)
         cdef tuple valid_ijs = tuple(self.ratings[valid_idx, :2].T.astype(int))

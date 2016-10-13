@@ -547,9 +547,8 @@ def main():
     print(new_ratings.shape)
     print(new_ratings.dtype)
     print(new_ratings)
-    pmf = ProbabilisticMatrixFactorization(new_ratings, latent_d=5)
 
-    fit_type=('mini-valid', 100, 10000)
+    fit_type=('mini-valid', 1000, 10000)
     pmf1 = ProbabilisticMatrixFactorization(ratings, latent_d=5, fit_type=fit_type)
 
     pmf1.do_fit()

@@ -538,7 +538,7 @@ def main():
 
     new_ratings = helper.getPMFFormat(ratings)
     fit_type=('mini-valid', 50, 50)
-    pmf1 = ProbabilisticMatrixFactorization(new_ratings, latent_d=5, fit_type=fit_type)
+    pmf1 = ProbabilisticMatrixFactorization(new_ratings, latent_d=5)
 
     print(new_ratings.shape[0])
     pmf1.do_fit()
@@ -557,7 +557,7 @@ def main():
 
     random_ratings_array = helper.getPMFFormat(random_ratings_matrix)
 
-    pmf2 = ProbabilisticMatrixFactorization(random_ratings_array, latent_d=5, fit_type=fit_type) 
+    pmf2 = ProbabilisticMatrixFactorization(random_ratings_array, latent_d=5) 
     
     pmf2.do_fit()
     #lls2 = []
